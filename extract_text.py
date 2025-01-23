@@ -1,5 +1,6 @@
 from pypdf import PdfReader
 import utils
+import os
 
 
 def extract_text():
@@ -17,7 +18,9 @@ def extract_text():
                 f"There are {len(reader.pages)} pages in {path}. Select the pages you want to extract (1,2,3 etc.):")
             for selected_page in utils.input_to_list(num_pages):
                 page = reader.pages[int(selected_page) - 1]
-                with open(path.replace(".pdf", ".txt") if ".pdf" in path else path + ".txt", "w") as text_file:
+                if not os.path.exists("output"):
+                    os.makedirs("output")
+                with open("output/"+path.replace(".pdf", ".txt") if ".pdf" in path else path + ".txt", "w") as text_file:
                     text_file.write(page.extract_text()+"\n")
                     print(f"Extracted text for page {selected_page}")
             break

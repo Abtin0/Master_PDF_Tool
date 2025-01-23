@@ -22,9 +22,10 @@ def split_pdf():
         for i, page in enumerate(reader.pages):
             writer = PdfWriter()
             writer.add_page(page)
-
             output_filename = f"{base_name}-page-{i + 1}.pdf"
-            with open(output_filename, "wb") as output_file:
+            if not os.path.exists("output"):
+                os.makedirs("output")
+            with open("output/"+output_filename, "wb") as output_file:
                 writer.write(output_file)
                 print(f'Page {i + 1} saved as "{output_filename}".')
 

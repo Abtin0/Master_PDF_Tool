@@ -40,7 +40,9 @@ def export_pages():
             print("Page does not exist. Please enter valid page number.")
 
     # Write to an output PDF document
-    output = open(f"exported-document-{path}", "wb")
+    if not os.path.exists("output"):
+        os.makedirs("output")
+    output = open(f"output/exported-document-{path}", "wb")
     merger.write(output)
     print(f'PDFs merged successfully as "exported-document-{path}".')
 

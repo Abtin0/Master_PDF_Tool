@@ -11,8 +11,9 @@ def lossless_compression():
 
             for page in writer.pages:
                 page.compress_content_streams()
-
-            with open(f"compressed-document-{path}", "wb") as f:
+            if not os.path.exists("output"):
+                os.makedirs("output")
+            with open(f"output/compressed-document-{path}", "wb") as f:
                 writer.write(f)
                 print(f'Compressed PDF saved as "compressed-document-{path}".')
                 break

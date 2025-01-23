@@ -70,7 +70,9 @@ def merge_pdf():
                 print("Page does not exist. Please enter valid page number.")
 
     # Write to an output PDF document
-    output = open("merged-document-output.pdf", "wb")
+    if not os.path.exists("output"):
+        os.makedirs("output")
+    output = open("output/merged-document-output.pdf", "wb")
     merger.write(output)
     print('PDFs merged successfully as "merged-document-output.pdf".')
 
