@@ -28,6 +28,11 @@ def export_pages():
                 merger.append(fileobj=fileobj, pages=pages)
                 break
 
+            elif pages.isdigit():  # Process single page input
+                page = int(pages) - 1  # Convert to zero-based indexing
+                merger.append(fileobj=fileobj, pages=[page])
+                break
+
             else:
                 print("Invalid format for pages. Please use '-' for a range or ',' for specific pages.")
 

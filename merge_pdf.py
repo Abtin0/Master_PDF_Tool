@@ -58,6 +58,11 @@ def merge_pdf():
                     merger.append(fileobj=split_file, pages=pages)
                     break
 
+                elif pages.isdigit():  # Process single page input
+                    pages = int(pages) - 1  # Convert to zero-based indexing
+                    merger.append(fileobj=split_file, pages=[pages])
+                    break
+
                 else:
                     print("Invalid format for pages. Please use '-' for a range or ',' for specific pages.")
 
