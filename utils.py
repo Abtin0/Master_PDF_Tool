@@ -1,6 +1,9 @@
+import re
+
+
 def input_to_list(raw_input):
-    return raw_input.replace(" ", "").split(",")
+    return re.split(r"[,\-]+", raw_input.replace(" ", ""))
 
 
-def input_extention(path):
-    return path + ".pdf" if ".pdf" not in path else path
+def input_extention(file_name):
+    return file_name + ".pdf" if ".pdf" not in file_name else file_name
