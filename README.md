@@ -44,11 +44,3 @@ This is a Python-based tool for managing and processing PDF files. It offers a r
 ## Contributing
 
 Contributions are welcome! Please feel free to submit bug reports, feature requests, and pull requests.
-
-## License
-
-This project is licensed under the [License Name] - see the `LICENSE` file for details.
-
-## Disclaimer
-
-This tool is provided "as is" without any warranty. Use at your own risk.
